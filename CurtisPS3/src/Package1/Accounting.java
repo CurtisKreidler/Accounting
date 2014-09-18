@@ -14,8 +14,8 @@ public class Accounting {
 	{
 	 	
 	}
-	
-	public Account(int id, double balance, double annualInterestRate, double balanceInitial)
+	//Constructor to create the account object
+	public void Account(int id, double balance, double annualInterestRate, double balanceInitial)
 	{
 		Date date = new Date();
 		
@@ -25,8 +25,8 @@ public class Accounting {
 		this.balanceInitial = balanceInitial; 
 		this.dateCreated = date;
 	}
-	
-	public Account(int id, double balance, double annualInterestRate, double balanceInital)
+	//No-arg constructor I'm not positve that its done correctly 
+	public account(int id, double balance, double annualInterestRate, double balanceInital)
 	{
 		this(id, balance, annualInterestRate, balanceIninial, 0)
 	}
@@ -40,7 +40,7 @@ public class Accounting {
 	{
 		return annualInterestRate;
 	}
-	
+	// start of the getters
 	public double balance()
 	{
 		return balance;
@@ -51,12 +51,38 @@ public class Accounting {
 		return dateCreated;
 	}
 	
-	public double getMonthlyInterestRate()
+	public void setId(int id)
 	{
-		
+		this.id = id;
+	}
+	// start of the setters 
+	public void setAnnualIntrestRate(double annualInterestRate)
+	{
+		this.annualInterestRate = annualInterestRate;
 	}
 	
+	public void setBalance(double balance)
+	{
+		this.balance = balance;
+	}
 	
+	public double getMonthlyInterestRate()
+	{
+		double rate = this.annualInterestRate / 12;
+		return rate;
+	}
 	
-
+	public double withdraw(double amount)
+	{
+		this.balance = balance - amount;
+		return balance;
+	}
+	// should return new balance to the account 
+	public double deposit(double amount)
+	{
+		this.balance = balance + amount;
+		return balance;
+	}
+	// should also return new balance 
+	
 }
